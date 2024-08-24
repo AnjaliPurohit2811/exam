@@ -1,149 +1,378 @@
-import 'dart:ui';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'SC',
-                  style: TextStyle(color: Colors.black, fontSize: 30),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 80,
+                width: width,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: height / 95,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                         Row(
+                          children: [
+                            Image.asset('asset/img/subtract.png'),
+                            SizedBox(
+                              width: width / 95,
+                            ),
+                            Text('SC.' , style: TextStyle(color: Colors.black , fontSize: 30, fontWeight: FontWeight.bold),)
+
+                          ], 
+                         ),
+                        SizedBox(
+                          width: 350,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed('listing');
+                                },
+                                child: const Text('New Arrivals',
+                                    style:
+                                    TextStyle(fontWeight: FontWeight.w600)),
+                              ),
+                              const Text('Men',
+                                  style:
+                                  TextStyle(fontWeight: FontWeight.w600)),
+                              const Text('Women',
+                                  style:
+                                  TextStyle(fontWeight: FontWeight.w600)),
+                              const Text('Kids',
+                                  style:
+                                  TextStyle(fontWeight: FontWeight.w600)),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 150,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(CupertinoIcons.cart),
+                              Icon(CupertinoIcons.heart),
+                              Icon(CupertinoIcons.person),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                Text(
-                  'New Arrivals',
-                  style: TextStyle(color: Colors.black, fontSize: 15),
-                ),
-                Text(
-                  'Mens',
-                  style: TextStyle(color: Colors.black, fontSize: 15),
-                ),
-                Text(
-                  'Womens',
-                  style: TextStyle(color: Colors.black, fontSize: 15),
-                ),
-                Text(
-                  'Kids',
-                  style: TextStyle(color: Colors.black, fontSize: 15),
-                ),
-                Icon(Icons.shopping_cart_outlined),
-                Icon(Icons.favorite_border),
-                Icon(Icons.person_2_outlined)
-              ],
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              height: 500,
-              width: double.infinity,
-              decoration: BoxDecoration(color: Colors.grey.shade100),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset('asset/img/subtract.png'),
               ),
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 176,
-                  width: 403,
-                  child: Text(
-                    'Puma \n Running SX',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
+              SizedBox(
+                height: height / 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: height / 1.3,
+                    width: width / 2.5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Puma\nRunning SX',
+                            style: GoogleFonts.baskervville(
+                                fontSize: 50, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'The shoes that moved mountains for eternity and still does so\nwith swift touch of modernism',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.grey.shade600),
+                          ),
+                          SizedBox(
+                            height: height / 20,
+                          ),
+                          Text(
+                            '62,000 RWF',
+                            style: GoogleFonts.roboto(
+                                fontSize: 50, fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            height: height / 20,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: height / 20,
+                            width: width / 14,
+                            color: Colors.red,
+                            child: const Text("Add to cart",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600)),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-                Text(
-                  'The shoe that moved mountains for eternity and still does so\n '
-                  'with a swift touch of modernism',
-                  style: TextStyle(color: Colors.black, fontSize: 15),
-                ),
-                Text(
-                  '62,000 RWF',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  alignment: Alignment.bottomRight,
-                  child: Image.asset(
-                    'asset/img/Rectangle 4.png',
-                    height: 400,
-                    width: 400,
+                  SizedBox(
+                    height: height / 1.3,
+                    width: width / 2,
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Opacity(
+                            opacity: 0.35,
+                            child: Container(
+                              height: height / 2,
+                              width: height / 2,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(colors: [
+                                  Color(0xffFEECE2),
+                                  Color(0xffFFC5C5),
+                                  Color(0xffC3ACD0),
+                                ]),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Positioned(
+                            width: height / 2.5,
+                            height: height / 2.5,
+                            child: Image.asset('Asset/img/rectangle 4.png'),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.topRight,
-                  child: Row(
+                ],
+              ),
+              SizedBox(
+                height: height / .5,
+                width: width,
+                child: Padding(
+                  padding: const EdgeInsets.all(50.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        'asset/img/Rectangle 4.png',
-                        height: 80,
-                        width: 80,
+                      const Text(
+                        'All the new Arrivals',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.w600),
                       ),
-                      Image.asset(
-                        'asset/img/1.png',
-                        height: 80,
-                        width: 80,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: height / 2.5,
+                            width: width / 7,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: height / 95,
+                                ),
+                                Container(
+                                  height: height / 3.5,
+                                  width: width / 8,
+                                  color: Colors.grey.shade200,
+                                  child: Image.asset('asset/img/rectangle 4.png',
+                                      fit: BoxFit.fill),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(18.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Adidas Beluga'),
+                                        Text('35,000RWF'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: height / 2.5,
+                            width: width / 7,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: height / 95,
+                                ),
+                                Container(
+                                  height: height / 3.5,
+                                  width: width / 8,
+                                  color: Colors.grey.shade200,
+                                  child: Image.asset('asset/img/rectangle 25.png',
+                                      fit: BoxFit.fill),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(18.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Nike Zoom'),
+                                        Text('35,000RWF'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: height / 2.5,
+                            width: width / 7,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: height / 95,
+                                ),
+                                Container(
+                                  height: height / 3.5,
+                                  width: width / 8,
+                                  color: Colors.grey.shade200,
+                                  child: Image.asset('asset/img/rectangle 24.png',
+                                      fit: BoxFit.fill),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(18.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Nike Air Jorden XT'),
+                                        Text('35,000RWF'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: height / 2.5,
+                            width: width / 7,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: height / 95,
+                                ),
+                                Container(
+                                  height: height / 3.5,
+                                  width: width / 8,
+                                  color: Colors.grey.shade200,
+                                  child: Image.asset('asset/img/rectangle 26.png',
+                                      fit: BoxFit.cover),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(18.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Nike Wobbler'),
+                                        Text('35,000RWF'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      Image.asset(
-                        'asset/img/Rectangle 8.png',
-                        height: 80,
-                        width: 80,
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: height / 12,
+                          ),
+                          const Align(
+                              alignment: Alignment.center,
+                              child: Text('Good sneakers',
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w600))),
+                          const Align(
+                              alignment: Alignment.center,
+                              child: Text('take you good place',
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w600))),
+                          SizedBox(
+                            height: height / 70,
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'look no further, this is where you find the best pair!',
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey.shade600,
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ],
                       ),
-                      Image.asset(
-                        'asset/img/Rectangle 9.png',
-                        height: 80,
-                        width: 80,
-                      )
+                      SizedBox(
+                        height: height / 10,
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Image.asset('asset/img/Group 30.png'),
+                      ),
+                      SizedBox(
+                        height: height / 5,
+                      ),
+                      const Divider(),
+                    SizedBox(
+                      height: 30,
+                    ),
+                      Image.asset('asset/img/Group 29.png')
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: Text(
-                          'All the New Arrivals',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(color: Colors.grey),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

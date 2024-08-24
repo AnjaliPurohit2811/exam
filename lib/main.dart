@@ -1,6 +1,7 @@
-
+import 'package:exam/views/listing.dart';
 import 'package:exam/views/homescreen.dart';
 import 'package:flutter/material.dart';
+
 
 
 
@@ -18,11 +19,11 @@ class exam extends StatelessWidget {
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       title: 'Exam',
-      initialRoute: '/',
+      initialRoute: '/product',
       routes: {
         '/' :(context) => HomeScreen(),
        // '/cart' :(context) => CartScreen(),
-       // '/product' :(context) => ProductScreen(),
+        '/product' :(context) => ListingScreen(),
 
 
       },
