@@ -11,7 +11,7 @@ public class even {
 
         for (int i = 1; i<= number; i++){
         if(i%2==0){
-
+            System.out.println(i);
             sum = sum+i;
             System.out.println(sum);
         }
