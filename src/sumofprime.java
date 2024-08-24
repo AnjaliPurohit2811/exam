@@ -13,8 +13,8 @@ public class sumofprime {
        System.out.println(number);
 
        for(i=1; i<=number; i++){
-           if(number%1==0){
-
+           if(i%2==1){
+              System.out.println(i);
            }
        }
 
